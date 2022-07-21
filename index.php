@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="./style/css/bootstrap.min.css">
 </head>
 <body class="container" style="background-color : #F4F4F4" >
+    <form action="file.php" method="post" enctype="multipart/form-data">
+        <input type="FILE" name="dosya">
+        <input type="submit" name="csvYukle">
+    </form>
     <div class="container-fluid flex-grow-1 container-p-y" style="padding-top:50px" >
         <form method = "POST" action= "plan-edit" id = "planform">
             <div class = "card mb-4">
@@ -61,13 +65,13 @@
                                 1
                                 </td>
                                 <td>
-                                <input type="number" name='boruUzunlugu0'  placeholder='Uzunluk' class="form-control"/>
+                                <input type="number" name='boruUzunlugu[]'  placeholder='Uzunluk' class="form-control"/>
                                 </td>
                                 <td>
-                                <input type="number" name='BoruAdeti0' placeholder='Adet' class="form-control"/>
+                                <input type="number" name='BoruAdeti[]' placeholder='Adet' class="form-control"/>
                                 </td>
                                 <td>
-                                <input type="text" name='BoruTipi0' placeholder='Tip' class="form-control"/>
+                                <input type="text" name='BoruTipi[]' placeholder='Tip' class="form-control"/>
                                 </td>
                             </tr>
                             <tr id='addr1'></tr>
@@ -115,16 +119,16 @@
                                 1
                                 </td>
                                 <td>
-                                <input type="number" name='Req_boruUzunlugu0'  placeholder='Uzunluk' class="form-control"/>
+                                <input type="number" name='Req_boruUzunlugu[]'  placeholder='Uzunluk' class="form-control"/>
                                 </td>
                                 <td>
-                                <input type="number" name='Req_BoruAdeti0' placeholder='Adet' class="form-control"/>
+                                <input type="number" name='Req_BoruAdeti[]' placeholder='Adet' class="form-control"/>
                                 </td>
                                 <td>
-                                <input type="text" name='Req_BoruTipi0' placeholder='Tip' class="form-control"/>
+                                <input type="text" name='Req_BoruTipi[]' placeholder='Tip' class="form-control"/>
                                 </td>
                                 <td>
-                                <input type="text" name='Req_BoruEtiket0' placeholder='Etiket' class="form-control"/>
+                                <input type="text" name='Req_BoruEtiket[]' placeholder='Etiket' class="form-control"/>
                                 </td>
                             </tr>
                             <tr id='Req_addr1'></tr>
@@ -151,7 +155,7 @@
         $(document).ready(function(){
             var i=1;
             $("#add_row").click(function(){
-            $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input name='boruUzunlugu"+i+"' type='number' placeholder='Uzunluk' class='form-control input-md'  /> </td><td><input  name=''BoruAdeti"+i+"' type='number' placeholder='Adet'  class='form-control input-md'></td><td><input  name='BoruTipi"+i+"' type='text' placeholder='Tİp'  class='form-control input-md'></td>");
+            $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input name='boruUzunlugu[]"+"' type='number' placeholder='Uzunluk' class='form-control input-md'  /> </td><td><input  name=''BoruAdeti[]"+"' type='number' placeholder='Adet'  class='form-control input-md'></td><td><input  name='BoruTipi[]"+"' type='text' placeholder='Tİp'  class='form-control input-md'></td>");
 
             $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
             i++; 
@@ -169,7 +173,7 @@
         $(document).ready(function(){
             var j=1;
             $("#Req_add_row").click(function(){
-            $('#Req_addr'+j).html("<td>"+ (j+1) +"</td><td><input name='Req_boruUzunlugu"+j+"' type='number' placeholder='Uzunluk' class='form-control input-md'  /> </td><td><input  name=''Req_BoruAdeti"+j+"' type='number' placeholder='Adet'  class='form-control input-md'></td><td><input  name='Req_BoruTipi"+j+"' type='text' placeholder='Tİp'  class='form-control input-md'></td><td><input name='Req_boruEtiket"+j+"' type='text' placeholder='Etiket' class='form-control input-md'/></td>");
+            $('#Req_addr'+j).html("<td>"+ (j+1) +"</td><td><input name='Req_boruUzunlugu[]"+"' type='number' placeholder='Uzunluk' class='form-control input-md'  /> </td><td><input  name=''Req_BoruAdeti[]"+"' type='number' placeholder='Adet'  class='form-control input-md'></td><td><input  name='Req_BoruTipi[]"+"' type='text' placeholder='Tİp'  class='form-control input-md'></td><td><input name='Req_boruEtiket[]"+"' type='text' placeholder='Etiket' class='form-control input-md'/></td>");
 
             $('#Req_tab_logic').append('<tr id="Req_addr'+(j+1)+'"></tr>');
             j++; 
